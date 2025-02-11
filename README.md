@@ -102,6 +102,15 @@ Settings – Personalization, calendar sync, notification preferences, and theme
 
 Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
 
+![Home page-mobile](/src/assets/images/Home-page-mobile.png)
+![Home page-desktop](/src/assets/images/Home-page-desktop.png)
+![Page2-desktop](/src/assets/images/Page2-desktop.png)
+![Page2-mobile](/src/assets/images/Page2-mobile.png)
+![Page3-desktop](/src/assets/images/Page3-desktop.png)
+![Page3-mobile](/src/assets/images/Page3-mobile.png)
+![Page4-desktop](/src/assets/images/Page4-desktop.png)
+![Page4-mobile](/src/assets/images/Page4-mobile.png)
+
 ### Data
 
 Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out. 
