@@ -279,62 +279,76 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 ---
 
-Week 1: Backend Setup & Core Functionality
-Tasks:
+Day 1: Project Setup & Database Configuration
+Set up project structure (Node.js, Express, React).
+Install dependencies (express, mysql2, bcrypt, cors, etc.).
+Configure MySQL database with tables:
 
-User Authentication System:
+users
+lenses
+reminders
+Day 2: User Authentication (Backend)
+Implement user authentication (Sign-up/Login).
+Hash passwords with bcrypt.
+Create API routes:
 
-Implement the user registration and login system using JWT (JSON Web Tokens).
-Set up MySQL database tables for storing user information (email, hashed password).
-Lens Tracking Database:
+POST /users/signup
+POST /users/login
+Test authentication with Postman.
+Day 3: Lens Tracking API
+Implement CRUD operations for lenses.
+API Routes:
 
-Design the database schema for lens tracking (lens brand, power, wear duration, replacement date).
-Set up endpoints for logging lens data (CRUD operations).
-Reminder System:
+GET /lenses
+POST /lenses
+DELETE /lenses/:id
+Store user-specific lens tracking data in MySQL.
+Day 4: Reminder System API
+Implement smart reminders for lens replacement.
+API Routes:
 
-Create endpoints for setting, fetching, and deleting reminders.
-Deliverables:
+GET /reminders
+POST /reminders
+DELETE /reminders/:id
+Test API with sample reminder data.
+Day 5: React Frontend - Authentication & Routing
+Set up React Router for navigation.
+Build Sign-up & Login pages with API integration.
+Implement session-based authentication.
 
-Working user authentication system (sign up/login).
-CRUD operations for lens tracking.
-Functional reminder system (set, fetch, delete).
-Week 2: Frontend Development & Smart Reminders
-Tasks:
+Day 6: Lens Tracking UI
+Create Lens Tracking Page for logging lens details.
+Display lens history & past logs.
+Connect frontend to backend API.
 
-Frontend User Authentication:
-Develop the sign-up/login pages with React.
-Set up the user session with JWT.
-Lens Tracking UI:
-Create the lens tracking page where users can input their lens details (brand, power, wear duration, etc.).
-Implement the history view for users to manage previously logged lenses.
-Smart Reminders:
-Develop the UI for users to set reminders (date and time).
-Implement the reminder logic on the backend to send notifications (Firebase Cloud Messaging) based on user behavior.
-Deliverables:
+Day 7: Reminders UI
+Build Reminders Page for users to add/edit reminders.
+Show upcoming lens replacement reminders.
+Test complete UI flow for reminders.
 
-User authentication UI (sign-up, login).
-Lens tracking page and history management.
-Basic reminder system integrated with push notifications.
-Week 3: AI Chat Assistant Integration & Refinement
-Tasks:
+Day 8: UI Enhancements & Error Handling
+Improve UI styling using SASS.
+Add error handling for API calls (invalid inputs, duplicate lenses, etc.).
+Ensure authentication errors are properly handled.
 
-AI Chat Interface:
-Build the AI chat interface using React. Users can interact with the assistant for eye care advice.
-OpenAI API Integration:
-Set up the integration with the OpenAI API to process and respond to user queries related to lens care and eye health.
-Storing Chat History:
-Set up the MySQL database to store user chat history for future analysis and improvements in AI responses.
-Refinement of Reminders:
-Fine-tune reminder scheduling to ensure it adapts to user behavior based on historical data.
-Deliverables:
+Day 9: Testing & Debugging
+Test all API routes.
+Ensure data consistency in MySQL.
+Debug UI/UX issues.
 
-AI chat interface fully functional.
-OpenAI API integration for lens care advice.
-Refined reminder system for more personalized notifications.
+Day 10: Deployment Setup
+ Set up backend on Render/Vercel.
+ Deploy frontend to Netlify/Vercel.
+ Configure environment variables for database & API.
 
+Day 11: Final Testing & Launch
+Conduct final tests for authentication, reminders, and lens tracking.
+Fix any last-minute bugs.
+Soft launch for user feedback.
 
 ## Future Implementations
 Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date.
+
 Future Implementations (Post MVP):
 
 Login/Logout: Users can log in with their credentials. Once logged in, a JWT (JSON Web Token) or OAuth will be issued to maintain authentication state.
@@ -439,3 +453,61 @@ Response:
 {
   "response": "You can wear your lenses for up to 10 hours today, but ensure to follow your optometrist's recommendations."
 }
+
+Updated roadmap inclsing extended features:
+
+Day 1: Upgrade Authentication (JWT)
+Replace session-based auth with JWT.
+Implement token verification for protected routes.
+Update frontend to store & use JWT tokens.
+
+Day 2: AI Chatbot Integration (OpenAI API)
+Build chat interface for AI-powered lens care assistant.
+Connect chatbot to OpenAI API.
+Store chat history in MySQL.
+
+Day 3: Gamification System
+Implement points & badges for tracking lens usage.
+Create GET /gamification API to fetch user progress.
+Build UI to display badges & points.
+
+Day 4: Google Calendar Sync
+Implement Google Calendar API for reminders.
+Build settings page for calendar integration.
+API Route: POST /calendar/sync.
+
+Day 5: Push Notifications (Firebase Cloud Messaging)
+Implement push notifications for reminders.
+Setup Firebase Cloud Messaging (FCM) for real-time updates.
+Ensure notifications trigger based on lens expiry.
+
+Day 6: UI Improvements & Dark Mode
+Implement dark mode toggle.
+Improve chatbot UI/UX with animations.
+Enhance gamification visuals (progress bars, badges).
+
+Day 7: Image Recognition (Google Vision API)
+Implement image recognition for lens packaging.
+Allow users to scan lens boxes instead of manual entry.
+API Route: POST /image-recognition.
+
+Day 8: Security Enhancements
+Encrypt sensitive user data.
+Implement rate limiting for API requests.
+Validate JWT tokens on all protected routes.
+
+Day 9: Testing & Debugging
+Test AI chatbot responses & improvements.
+Debug JWT-based authentication.
+Validate push notification delivery.
+
+Day 10: Final Deployment
+Deploy latest backend updates to Render/Vercel.
+Deploy frontend with new features.
+Set up error monitoring using tools like Sentry.
+
+Day 11: Final Testing & Soft Launch
+Conduct complete end-to-end testing.
+Ensure AI chatbot, calendar sync, gamification, JWT, and notifications work smoothly.
+Launch Version 2 with advanced features.
+
