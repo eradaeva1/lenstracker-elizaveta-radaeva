@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import "./HeroSection.scss";
 
@@ -37,7 +38,7 @@ const fetchUsername = async () => {
   }
 
   try {
-    const response = await axios.get(`${API_URL}/users/me`, {
+    const response = await axios.get(`${API_URL}/users`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -52,9 +53,11 @@ const fetchUsername = async () => {
 
 function HeroSection() {
   const [lensesData, setLensesData] = useState(null); // Store fetched lenses data
+  const [username, setUsername] = useState("Guest"); // Default to "Guest"
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const [error, setError] = useState(null); // Error state
-  const [username, setUsername] = useState("Guest"); // Default to "Guest"
+
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const getUserData = async () => {
@@ -68,7 +71,7 @@ function HeroSection() {
       }
     };
 
-    getUserData(); // Call function to fetch user data when component mounts
+    getUserData(); // Fetch user data when component mounts
   }, []);
 
   const handleTrackLenses = async () => {
@@ -78,6 +81,7 @@ function HeroSection() {
     try {
       const data = await fetchLensesData(); // Fetch lenses data
       setLensesData(data); // Store fetched data in state
+      navigate("/lenses", { state: { lensesData: data } }); // Navigate to LensPage and pass lenses data
     } catch (error) {
       setError(error.message); // Set error if fetch fails
     } finally {
@@ -95,9 +99,9 @@ function HeroSection() {
       <div className="hero__content">
         <p className="hero__greeting">Hello,</p>
         <h2 className="hero__name">{username}</h2> {/* Show username or "Guest" */}
-        <button 
+        <button
           className="hero__button"
-          onClick={handleTrackLenses} // Trigger the fetch on click
+          onClick={handleTrackLenses} // Trigger the fetch and navigation
         >
           Track Your Lenses
         </button>
@@ -105,12 +109,6 @@ function HeroSection() {
 
       {isLoading && <p>Loading...</p>} {/* Show loading text while fetching */}
       {error && <p>Error: {error}</p>} {/* Show error if fetch fails */}
-      {lensesData && (
-        <div>
-          <h3>Lenses Data:</h3>
-          <pre>{JSON.stringify(lensesData, null, 2)}</pre> {/* Display lenses data */}
-        </div>
-      )}
     </section>
   );
 };
