@@ -13,8 +13,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/lenses" element={<LensesPage />} />
         <Route path="/reminders" element={<RemindersPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/users/login" element={<LoginPage />} />
+        <Route path="/users/signup" element={<SignUpPage />} />
         {/* <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/users" element={<UserPage />} />

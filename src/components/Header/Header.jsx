@@ -12,7 +12,7 @@ const Header = () => {
       <h1 className="header__logo">LensTracker</h1>
       <div className="header__actions">
         <button className="header__icon-button">
-          <img src={accountCircle} className="fa-regular fa-bell" onClick={() => navigate("/login")}></img>
+          <img src={accountCircle} className="fa-regular fa-bell" onClick={() => navigate("/users/login")}></img>
         </button>
         {/* <img
           src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg"
