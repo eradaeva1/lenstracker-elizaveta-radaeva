@@ -5,6 +5,7 @@ import LensesPage from '../src/pages/LensesPage.jsx';
 import RemindersPage from '../src/pages/RemindersPage.jsx';
 import LoginPage from '../src/pages/LoginPage.jsx';
 import SignUpPage from '../src/pages/SignUpPage.jsx';
+import QuestionsPage from '../src/pages/QuestionsPage.jsx'
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/reminders" element={<RemindersPage />} />
         <Route path="/users/login" element={<LoginPage />} />
         <Route path="/users/signup" element={<SignUpPage />} />
+        <Route path="/ask-gemini" element={<QuestionsPage />} />
+
         {/* <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/users" element={<UserPage />} />

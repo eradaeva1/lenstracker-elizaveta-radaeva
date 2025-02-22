@@ -28,7 +28,7 @@ const navigate = useNavigate();
         <span className="quick-actions__label">Reminders</span>
       </button>
       <button className="quick-actions__button">
-        <img src={aiHelpIcon} alt="Help Icon" className="quick-actions__icon"></img>
+        <img src={aiHelpIcon} alt="Help Icon" className="quick-actions__icon" onClick={() => navigate("/ask-gemini")}></img>
         <span className="quick-actions__label">AI Help</span>
       </button>
       <button className="quick-actions__button">

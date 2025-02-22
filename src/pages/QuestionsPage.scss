@@ -1,0 +1,271 @@
+// .faq-container {
+//     max-width: 600px;
+//     margin: 0 auto;
+//     padding: 20px;
+  
+//     h2 {
+//       text-align: center;
+//       margin-bottom: 15px;
+//     }
+  
+//     input {
+//       width: 80%;
+//       padding: 8px;
+//       border: 1px solid #ccc;
+//       border-radius: 5px;
+//       margin-bottom: 15px;
+//     }
+  
+//     button {
+//       padding: 8px 12px;
+//       margin-left: 10px;
+//       border: none;
+//       background-color: #007bff;
+//       color: white;
+//       cursor: pointer;
+//       border-radius: 5px;
+//     }
+  
+//     .faq-list {
+//       .faq-item {
+//         margin-bottom: 10px;
+        
+//         button {
+//           width: 100%;
+//           padding: 10px;
+//           text-align: left;
+//           background: #f8f9fa;
+//           border: none;
+//           cursor: pointer;
+//           font-weight: bold;
+//           border-radius: 5px;
+//         }
+  
+//         .faq-answer {
+//           padding: 10px;
+//           background: #e9ecef;
+//           border-radius: 5px;
+//           margin-top: 5px;
+//         }
+//       }
+//     }
+//   }
+
+// Global Styles
+$bg-color: #f9fafb;
+$text-color: #4a4a4a;
+$primary-color: #f56565; // Red color
+$secondary-color: #edf2f7; // Light gray
+
+// Container
+.faq-container {
+  background-color: $bg-color;
+  min-height: 100vh;
+  padding-bottom: 3rem; // Space for the input area
+}
+
+// Header Styles
+.header-ai{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    padding: 0.5rem;
+  }
+  
+  .header-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $text-color;
+  }
+  
+  .header-subtitle {
+    font-size: 0.875rem;
+    color: #718096;
+  }
+}
+
+// Search Bar Styles
+.faq-search {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  
+  .search-input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: $text-color;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    
+    ::placeholder {
+      color: #b0bec5;
+    }
+  }
+
+  .search-btn {
+    background-color: transparent;
+    border: none;
+    color: $primary-color;
+    font-size: 1.25rem;
+  }
+}
+
+// FAQ List Styles
+.faq-list {
+  margin-top: 2rem;
+  
+  .faq-item {
+    margin-bottom: 1.5rem;
+    
+    button.faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      span.question-text {
+        color: $text-color;
+      }
+      
+      i.icon {
+        color: #a0aec0;
+      }
+    }
+    
+    .faq-answer {
+      margin-top: 0.5rem;
+      padding: 1rem;
+      background-color: $secondary-color;
+      border-radius: 1rem;
+      color: $text-color;
+    }
+  }
+}
+
+// AI Response Styles
+.ai-response {
+  display: flex;
+  margin-bottom: 1.5rem;
+  
+  .ai-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #f56565;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .ai-message {
+    margin-left: 1rem;
+    background-color: $secondary-color;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 80%;
+    color: $text-color;
+  }
+}
+
+// Input Area Styles (for sending questions)
+#input-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 1rem;
+  border-top: 1px solid #e2e8f0;
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .message-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    background-color: #f7fafc;
+    border-radius: 2rem;
+    border: none;
+    color: $text-color;
+    font-size: 1rem;
+    outline: none;
+    
+    &:focus {
+      border: 2px solid #f56565;
+    }
+  }
+
+  .input-btn {
+    padding: 0.75rem;
+    color: $primary-color;
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+  }
+
+  .send-btn {
+    background-color: #f56565;
+    color: white;
+    border-radius: 50%;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+  }
+}
+
+// Floating Action Button (FAB)
+#fab {
+  position: fixed;
+  bottom: 6rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #f56565;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+}
+
+// Typography for Headings and Paragraphs
+.faq-title, .faq-subtitle, .faq-heading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: $text-color;
+}
+
+.faq-paragraph, .ai-response-text {
+  font-family: 'Roboto', sans-serif;
+  color: $text-color;
+}
