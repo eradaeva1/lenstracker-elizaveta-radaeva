@@ -36,7 +36,7 @@
 
 .status-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   width: 100%;
   gap: 12px;
@@ -77,3 +77,13 @@
     color: #666;
   }
 }
+
+.status-cards {
+  margin-bottom: 6rem;
+  margin-top: 0.1rem;
+}
+
+// .status-card--part {
+//   display: flex;
+//   flex-direction: column;
+// }

@@ -15,12 +15,14 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.5rem;
+  color: #111827;
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #111827;
-  }
+//   h1 {
+//     font-size: 1.5rem;
+//     font-weight: bold;
+//     color: #111827;
+//   }
 
   .add-button {
     background: #2563eb;
@@ -38,8 +40,10 @@
 }
 
 .reminders-list {
+    margin-top: 5rem;
   flex: 1;
   padding: 1rem;
+  width: 100%;
 }
 
 .reminder-item {
@@ -61,7 +65,7 @@
     align-items: center;
     gap: 0.8rem;
 
-    i {
+    img {
       font-size: 1.5rem;
     }
 
@@ -94,7 +98,7 @@
   bottom: 0;
   width: 100%;
 
-  .create-reminder {
+  .create-button {
     background: #2563eb;
     color: white;
     width: 100%;
@@ -116,4 +120,12 @@
   color: #6b7280;
   font-size: 1rem;
   padding: 2rem;
+}
+
+
+.reminder {
+    position: relative;
+    z-index: 100;
+    // color: red;
+    margin-top: 2rem;
 }

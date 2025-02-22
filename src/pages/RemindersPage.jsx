@@ -84,6 +84,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./RemindersPage.scss";
+import whiteAdd from "../../src/assets/logos/plus-white.svg";
+import trashGrey from "../../src/assets/logos/trash-grey.svg";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -94,6 +96,12 @@ const RemindersPage = () => {
   const token = localStorage.getItem("jwt");
 
   useEffect(() => {
+
+    const token = localStorage.getItem("jwt");
+// You can check if the token is null or invalid here
+if (!token) {
+  console.error("No JWT token found");
+} 
     const fetchReminders = async () => {
       try {
         const response = await axios.get(`${API_URL}/reminders`, {
@@ -141,7 +149,7 @@ const RemindersPage = () => {
       <header className="header">
         <h1>Your Reminders</h1>
         <button className="add-button" onClick={addReminder}>
-          <i className="fa-solid fa-plus"></i>
+          <img src={whiteAdd} className="fa-solid fa-plus" alt="add"></img>
         </button>
       </header>
 
@@ -168,12 +176,14 @@ const RemindersPage = () => {
                   }`}
                 ></i>
                 <div>
-                  <h3>{reminder.title}</h3>
-                  <p>{reminder.time}</p>
+                  <h3 classname="reminder__title">{reminder.title}</h3>
+                  <p>{reminder.message}</p>
+                  <p classname="reminder__detail">{reminder.time}</p>
+                  <p>{reminder.date}</p>
                 </div>
               </div>
               <button className="delete-button" onClick={() => deleteReminder(reminder.id)}>
-                <i className="fa-solid fa-trash"></i>
+                <img src={trashGrey} className="fa-solid fa-trash"></img>
               </button>
             </div>
           ))
@@ -182,7 +192,7 @@ const RemindersPage = () => {
 
       <footer className="footer">
         <button className="create-button" onClick={addReminder}>
-          <i className="fa-solid fa-plus"></i>
+        <img src={whiteAdd} className="fa-solid fa-plus" alt="add"></img>
           <span>Create New Reminder</span>
         </button>
       </footer>

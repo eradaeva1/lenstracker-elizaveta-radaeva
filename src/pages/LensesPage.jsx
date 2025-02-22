@@ -84,6 +84,115 @@ import Header from "../../src/components/Header/Header";
 
 // export default LensesPage;
 // 
+// const API_URL = import.meta.env.VITE_API_URL;
+
+// const LensesPage = () => {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+
+//   const { lensesData } = location.state || {};
+
+//   const [lenses, setLenses] = useState(lensesData || []);
+//   const [formData, setFormData] = useState({
+//     brand: "",
+//     type: "",
+//     power: "",
+//     startDate: "",
+//     eyeSide: "",
+//   });
+
+//   const [error, setError] = useState(null);
+//   const token = localStorage.getItem("jwt");
+
+//   useEffect(() => {
+//     if (!lensesData && token) {
+//       const fetchLensesData = async () => {
+//         try {
+//           const response = await axios.get(`${API_URL}/lenses`, {
+//             headers: { Authorization: `Bearer ${token}` },
+//           });
+//           setLenses(response.data);
+//         } catch (error) {
+//           console.error("Error fetching lenses data:", error);
+//           setError("Failed to fetch lenses data.");
+//         }
+//       };
+//       fetchLensesData();
+//     }
+//   }, [lensesData, token]);
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     // Validation
+//     if (!formData.brand || !formData.type || !formData.power || !formData.startDate || !formData.eyeSide) {
+//       setError("Please fill in all fields.");
+//       return;
+//     }
+
+//     try {
+//       // Send the new lens data to the backend
+//       const response = await axios.post(
+//         `${API_URL}/lenses`,
+//         formData,
+//         {
+//           headers: { Authorization: `Bearer ${token}` },
+//         }
+//       );
+
+//       // Add the new lens to the history (using functional setState)
+//       setLenses((prevLenses) => [response.data, ...prevLenses]);
+
+//       // Reset form data
+//       setFormData({ brand: "", type: "", power: "", startDate: "", eyeSide: "" });
+
+//       // Clear error message
+//       setError(null);
+//     } catch (error) {
+//       console.error("Error submitting lens data:", error);
+//       setError("Failed to submit new lens data.");
+//     }
+//   };
+
+//   return (
+//     <div className="lens-tracking-container">
+//       <Header />
+//       <main className="main-content">
+//         <div className="lens-section">
+//           <h2>Your Lenses History</h2>
+//           {error && <p className="error-message">{error}</p>}
+
+//           <LensForm
+//             formData={formData}
+//             handleChange={handleChange}
+//             handleSubmit={handleSubmit}
+//             setLenses={setLenses} // Passing setLenses to LensForm
+//           />
+
+//           <LensHistory lenses={lenses} />
+
+//           {lenses.length === 0 && !error && <p>No lenses found. Please add some lenses.</p>}
+//         </div>
+//       </main>
+//       <FooterLensesPage />
+//     </div>
+//   );
+// };
+
+// export default LensesPage;
+
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useLocation, useNavigate } from "react-router-dom";
+// import LensForm from "./LensForm"; // Assuming you have a separate LensForm component
+// import LensHistory from "./LensHistory"; // Assuming you have a LensHistory component
+// import Header from "./Header"; // Assuming you have a Header component
+// import FooterLensesPage from "./FooterLensesPage"; // Assuming you have a FooterLensesPage component
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const LensesPage = () => {
@@ -104,6 +213,7 @@ const LensesPage = () => {
   const [error, setError] = useState(null);
   const token = localStorage.getItem("jwt");
 
+  // Fetch lenses if not provided via props
   useEffect(() => {
     if (!lensesData && token) {
       const fetchLensesData = async () => {
@@ -135,7 +245,7 @@ const LensesPage = () => {
     }
 
     try {
-      // Send the new lens data to the backend
+      // Step 1: Submit the new lens data
       const response = await axios.post(
         `${API_URL}/lenses`,
         formData,
@@ -144,8 +254,27 @@ const LensesPage = () => {
         }
       );
 
-      // Add the new lens to the history (using functional setState)
-      setLenses((prevLenses) => [response.data, ...prevLenses]);
+      // Step 2: After successfully adding the lens, create a reminder for it
+      const lens = response.data;
+
+      const reminderData = {
+        title: `Check ${lens.brand} Lens`,
+        time: "Today, 6:00 PM",  // You can adjust this based on your logic
+        lensId: lens.id, // Link the reminder to the lens ID
+        status: "pending",
+      };
+
+      // Step 3: Send the reminder data to the backend
+      await axios.post(
+        `${API_URL}/reminders`,
+        reminderData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      // Step 4: Update lenses state with the newly added lens
+      setLenses((prevLenses) => [lens, ...prevLenses]);
 
       // Reset form data
       setFormData({ brand: "", type: "", power: "", startDate: "", eyeSide: "" });
@@ -173,7 +302,7 @@ const LensesPage = () => {
             setLenses={setLenses} // Passing setLenses to LensForm
           />
 
-          <LensHistory lenses={lenses} />
+          <LensHistory lenses={lenses} token={localStorage.getItem("jwt")} />
 
           {lenses.length === 0 && !error && <p>No lenses found. Please add some lenses.</p>}
         </div>

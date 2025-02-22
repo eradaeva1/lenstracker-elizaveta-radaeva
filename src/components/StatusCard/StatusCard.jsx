@@ -8,7 +8,7 @@ import calendarWhite from "../../assets/logos/calendar-white.svg";
 const StatusCard = ({icon, modifier}) => {
   return (
     <>
-    {/* <div className={`status-card ${modifier || ""}`}> */}
+    <div className={`status-cards ${modifier || ""}`}>
     <article className="status-card">
       <div className="status-card__icon">
         <img src={clockWhite} className={icon}></img>
@@ -36,7 +36,7 @@ const StatusCard = ({icon, modifier}) => {
         <p className="status-card__description">You wore your lenses for 8 hours</p>
       </div>
       </article>
-     {/* </div> */}
+     </div>
     </>
   );
 };
