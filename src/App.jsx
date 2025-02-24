@@ -18,12 +18,7 @@ function App() {
         <Route path="/users/signup" element={<SignUpPage />} />
         <Route path="/ask-gemini" element={<QuestionsPage />} />
 
-        {/* <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/users" element={<UserPage />} />
-        <Route path="/lenses" element={<LensPage />} />
-        <Route path="/reminders" element={<RemindersPage />} />
-        <Route path="/questions" element={<QuestionsPage />} /> */}
+
       </Routes>
     </Router>
   );

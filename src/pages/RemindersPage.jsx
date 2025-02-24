@@ -117,19 +117,35 @@ if (!token) {
     fetchReminders();
   }, [token]);
 
-  const addReminder = async () => {
+  const addReminder = () => {
+    setShowModal(true);
+  };
+
+  const handleSaveReminder = async (newReminder) => {
     try {
-      const newReminder = {
-        title: "New Reminder",
-        time: "Today, 6:00 PM",
-        status: "pending",
-      };
+      const userId = getUserIdFromToken(token);
+      newReminder.user_id = userId;
+
       const response = await axios.post(`${API_URL}/reminders`, newReminder, {
         headers: { Authorization: `Bearer ${token}` },
       });
+
       setReminders([...reminders, response.data]);
+      setShowModal(false); // Close the modal after saving
     } catch (error) {
       console.error("Error adding reminder:", error);
+    }
+  };
+  
+  // Helper function to extract user_id from JWT token
+  const getUserIdFromToken = (token) => {
+    if (!token) return null;
+    try {
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));
+      return decodedToken.id; // Assuming the token contains the user ID
+    } catch (e) {
+      console.error("Error decoding token:", e);
+      return null;
     }
   };
 
@@ -166,26 +182,29 @@ if (!token) {
           </div>
         ) : (
           reminders.map((reminder) => (
-            <div key={reminder.id} className="reminder">
-              <div className="reminder-content">
-                <i
-                  className={`fa-solid ${
-                    reminder.status === "pending"
-                      ? "fa-exclamation-circle text-red-500"
-                      : "fa-check-circle text-gray-400"
-                  }`}
-                ></i>
-                <div>
-                  <h3 classname="reminder__title">{reminder.title}</h3>
-                  <p>{reminder.message}</p>
-                  <p classname="reminder__detail">{reminder.time}</p>
-                  <p>{reminder.date}</p>
-                </div>
-              </div>
-              <button className="delete-button" onClick={() => deleteReminder(reminder.id)}>
-                <img src={trashGrey} className="fa-solid fa-trash"></img>
-              </button>
-            </div>
+  <div key={reminder.id} className="reminder">
+    <div className="reminder-content">
+      <i
+        className={`fa-solid ${
+          reminder.status === "pending"
+            ? "fa-exclamation-circle text-red-500"
+            : "fa-check-circle text-gray-400"
+        }`}
+      ></i>
+      <div>
+        <h3 className="reminder__title">{reminder.title}</h3>
+        <p>{reminder.message}</p>
+        <p className="reminder__detail">
+          {reminder.reminder_time} {/* Display reminder time */}
+        </p>
+        <p>{reminder.reminder_date}</p> {/* Display reminder date */}
+      </div>
+    </div>
+    <button className="delete-button" onClick={() => deleteReminder(reminder.id)}>
+      <img src={trashGrey} className="fa-solid fa-trash"></img>
+    </button>
+  </div>
+
           ))
         )}
       </main>
@@ -193,8 +212,10 @@ if (!token) {
       <footer className="footer">
         <button className="create-button" onClick={addReminder}>
         <img src={whiteAdd} className="fa-solid fa-plus" alt="add"></img>
+        
           <span>Create New Reminder</span>
         </button>
+        
       </footer>
     </div>
   );

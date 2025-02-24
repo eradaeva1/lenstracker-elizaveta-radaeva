@@ -31,10 +31,10 @@ const navigate = useNavigate();
         <img src={aiHelpIcon} alt="Help Icon" className="quick-actions__icon" onClick={() => navigate("/ask-gemini")}></img>
         <span className="quick-actions__label">AI Help</span>
       </button>
-      <button className="quick-actions__button">
+      {/* <button className="quick-actions__button">
         <img src={settingsIcon} alt="setting Icon" className="quick-actions__icon"></img>
         <span className="quick-actions__label">Settings</span>
-      </button>
+      </button> */}
     </nav>
   );
 };

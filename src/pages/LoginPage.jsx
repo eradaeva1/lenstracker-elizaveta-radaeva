@@ -113,7 +113,7 @@ function LoginPage() {
         if (response.data.token) {
           // Store token and user data in localStorage
           localStorage.setItem("jwt", response.data.token); // Save JWT token as 'jwt'
-          localStorage.setItem("user", JSON.stringify(response.data.user)); // Save user data
+          localStorage.setItem("user", JSON.stringify(response.data.user.id)); // Save user data
   
           navigate("/"); // Redirect to home (or wherever you want after login)
         } else {
