@@ -1,0 +1,85 @@
+<div id="mobile-dashboard" class="bg-white min-h-screen">
+    <header id="header" class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 px-4 py-3 border-b border-gray-100">
+        <div class="flex justify-between items-center">
+            <h1 class="text-red-600 text-xl font-bold">Command</h1>
+            <div class="flex items-center gap-3">
+                <button class="text-gray-600">
+                    <i class="fa-regular fa-bell text-xl"></i>
+                </button>
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="User" class="w-8 h-8 rounded-full">
+            </div>
+        </div>
+    </header>
+    <main class="pt-16 pb-24">
+        <section id="hero" class="relative h-[280px] px-4 flex flex-col justify-end pb-6">
+            <img class="absolute inset-0 w-full h-full object-cover brightness-50" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dcab5838a0-fa52075cf1e9ef61bcf5.png" alt="close up of a human eye with contact lens, medical photography style, soft lighting" >
+            <div class="relative z-10">
+                <p class="text-white/80">Hello,</p>
+                <h2 class="text-white text-2xl font-bold mb-4">Sarah Johnson</h2>
+                <button class="bg-red-600 text-white px-6 py-3 rounded-xl w-full font-medium">
+                    Track Your Lenses
+                </button>
+            </div>
+        </section>
+        <section id="status-cards" class="px-4 py-6 space-y-4">
+            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-600 p-3 rounded-full">
+                        <i class="fa-regular fa-clock text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Current Status</h3>
+                        <p class="text-gray-600">Lenses due for removal in 3 hours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-gray-100">
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-600 p-3 rounded-full">
+                        <i class="fa-regular fa-calendar text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Next Replacement</h3>
+                        <p class="text-gray-600">Due in 2 days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-gray-100">
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-600 p-3 rounded-full">
+                        <i class="fa-regular fa-eye text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Today's Usage</h3>
+                        <p class="text-gray-600">You wore your lenses for 8 hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="quick-actions" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 py-3">
+            <div class="flex justify-between items-center">
+                <button class="flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-house text-red-600 text-xl"></i>
+                    <span class="text-xs text-gray-600">Home</span>
+                </button>
+                <button class="flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-plus text-red-600 text-xl"></i>
+                    <span class="text-xs text-gray-600">New Log</span>
+                </button>
+                <button class="flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-bell text-red-600 text-xl"></i>
+                    <span class="text-xs text-gray-600">Reminders</span>
+                </button>
+                <button class="flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-robot text-red-600 text-xl"></i>
+                    <span class="text-xs text-gray-600">AI Help</span>
+                </button>
+                <button class="flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-gear text-red-600 text-xl"></i>
+                    <span class="text-xs text-gray-600">Settings</span>
+                </button>
+            </div>
+        </section>
+    </main>
+</div>
+

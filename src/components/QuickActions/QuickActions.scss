@@ -1,0 +1,42 @@
+@use "../../styles/partials/globals" as *;
+
+.quick-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 0.0625rem solid #eee;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem 0;
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 0.75rem;
+    transition: color 0.2s;
+
+    &--active {
+      color: #e60023; // Red highlight for active button
+    }
+
+    &:hover {
+      color: #e60023;
+    }
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+  }
+
+  &__label {
+    font-size: 0.625rem;
+  }
+}

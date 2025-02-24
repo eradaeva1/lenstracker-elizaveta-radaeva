@@ -1,0 +1,121 @@
+.reminders-screen {
+  background: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.5rem;
+  color: #111827;
+
+  .add-button {
+    background: #2563eb;
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.reminders-list {
+  margin-top: 5rem;
+  flex: 1;
+  padding: 1rem;
+  width: 100%;
+}
+
+.reminder-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.8rem;
+
+  &.completed h3 {
+    color: gray;
+  }
+
+  .reminder-details {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    img {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+  }
+
+  .options-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #6b7280;
+    cursor: pointer;
+  }
+}
+
+.footer {
+  background: white;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  .create-button {
+    background: #2563eb;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.no-reminders {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+  padding: 2rem;
+}
+
+.reminder {
+  position: relative;
+  z-index: 100;
+  // color: red;
+  margin-top: 2rem;
+}

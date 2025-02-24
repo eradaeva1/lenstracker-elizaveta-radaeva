@@ -1,0 +1,147 @@
+#signup {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.signup-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+}
+
+.signup-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.signup-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  i {
+    color: #e63946;
+    font-size: 1.8rem;
+  }
+  span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+  }
+}
+
+// Card Styling
+.signup-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Input Fields
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+  i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e63946;
+  }
+  input {
+    width: 100%;
+    padding: 10px 10px 10px 36px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    &:focus {
+      border-color: #e63946;
+      outline: none;
+    }
+  }
+}
+
+// Checkbox Group
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  input {
+    margin-right: 8px;
+  }
+  span {
+    color: #e63946;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Buttons
+.signup-btn {
+  width: 100%;
+  background-color: #e63946;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  &:hover {
+    background-color: #d62839;
+  }
+}
+
+.login-link {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  span {
+    color: #e63946;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Footer
+.signup-footer {
+  font-size: 0.8rem;
+  color: #6b7280;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2rem;
+  span {
+    cursor: pointer;
+    &:hover {
+      color: #e63946;
+    }
+  }
+}
