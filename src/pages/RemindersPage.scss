@@ -1,6 +1,3 @@
-// @import "../styles/partials/variables";
-// @import "../styles/partials/mixins";
-
 .reminders-screen {
   background: #f9fafb;
   min-height: 100vh;
@@ -18,12 +15,6 @@
   font-size: 0.5rem;
   color: #111827;
 
-//   h1 {
-//     font-size: 1.5rem;
-//     font-weight: bold;
-//     color: #111827;
-//   }
-
   .add-button {
     background: #2563eb;
     color: white;
@@ -40,7 +31,7 @@
 }
 
 .reminders-list {
-    margin-top: 5rem;
+  margin-top: 5rem;
   flex: 1;
   padding: 1rem;
   width: 100%;
@@ -122,10 +113,9 @@
   padding: 2rem;
 }
 
-
 .reminder {
-    position: relative;
-    z-index: 100;
-    // color: red;
-    margin-top: 2rem;
+  position: relative;
+  z-index: 100;
+  // color: red;
+  margin-top: 2rem;
 }

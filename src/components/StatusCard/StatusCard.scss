@@ -1,38 +1,4 @@
 @use "../../styles/partials/globals" as *;
-// .status-card {
-//     display: flex;
-//     align-items: start;
-//     gap: 12px;
-//     padding: 16px;
-//     border-radius: 12px;
-//     border: 1px solid #e0e0e0;
-//     background: white;
-  
-//     &--alert {
-//       background: #fee2e2;
-//       border-color: #fecaca;
-//     }
-  
-//     &__icon {
-//       background: #dc2626;
-//       padding: 12px;
-//       border-radius: 50%;
-  
-//       i {
-//         color: white;
-//         font-size: 1.25rem;
-//       }
-//     }
-  
-//     &__title {
-//       font-weight: bold;
-//       color: #111827;
-//     }
-  
-//     &__description {
-//       color: #4b5563;
-//     }
-//   }
 
 .status-card {
   display: flex;

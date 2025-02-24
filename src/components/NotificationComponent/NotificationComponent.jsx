@@ -12,11 +12,11 @@ const NotificationComponent = ({ userId }) => {
       const token = await requestForToken();
       if (token) {
         console.log("FCM Token:", token);
-        setFcmToken(token);  // Store token in local state
+        setFcmToken(token); // Store token in local state
         // Send FCM token to backend to store in MySQL
         await axios.post("http://localhost:5000/api/store-fcm-token", {
           userId,
-          fcmToken: token,  // Ensure the key is correct based on your backend model
+          fcmToken: token, // Ensure the key is correct based on your backend model
         });
         console.log("FCM Token stored successfully");
       }
@@ -30,7 +30,7 @@ const NotificationComponent = ({ userId }) => {
     onMessageListener()
       .then((payload) => {
         console.log("Notification received:", payload);
-        setNotification(payload.notification);  // Set the notification to state
+        setNotification(payload.notification); // Set the notification to state
       })
       .catch((err) => console.log("Notification error:", err));
   };

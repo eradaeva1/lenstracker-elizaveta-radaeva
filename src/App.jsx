@@ -17,8 +17,6 @@ function App() {
         <Route path="/users/login" element={<LoginPage />} />
         <Route path="/users/signup" element={<SignUpPage />} />
         <Route path="/ask-gemini" element={<QuestionsPage />} />
-
-
       </Routes>
     </Router>
   );

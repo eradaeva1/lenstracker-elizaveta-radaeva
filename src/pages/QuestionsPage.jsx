@@ -11,7 +11,6 @@ const FAQ = () => {
   const [aiAnswer, setAiAnswer] = useState(""); // Store AI-generated response
   const [loading, setLoading] = useState(false);
 
-
   const navigate = useNavigate();
   // Filter FAQs based on search input
   const filteredFAQs = faqs.filter((faq) =>
@@ -47,7 +46,11 @@ const FAQ = () => {
       <header className="header-ai">
         <div className="flex items-center">
           <button className="p-2">
-            <img src={arrowRed} className=""  onClick={() => navigate("/")}></img>
+            <img
+              src={arrowRed}
+              className=""
+              onClick={() => navigate("/")}
+            ></img>
           </button>
           <div className="ml-3">
             <h1 className="header-title">Frequently Asked Questions</h1>
@@ -58,7 +61,6 @@ const FAQ = () => {
         </div>
       </header>
 
-      
       <div className="faq-list">
         {filteredFAQs.length > 0 ? (
           filteredFAQs.map((faq, index) => (
@@ -68,7 +70,13 @@ const FAQ = () => {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <span className="question-text">{faq.question}</span>
-                <i className={`icon ${openIndex === index ? "fa-solid fa-minus" : "fa-solid fa-plus"}`}></i>
+                <i
+                  className={`icon ${
+                    openIndex === index
+                      ? "fa-solid fa-minus"
+                      : "fa-solid fa-plus"
+                  }`}
+                ></i>
               </button>
               {openIndex === index && (
                 <p className="faq-answer">{faq.answer}</p>
@@ -77,7 +85,11 @@ const FAQ = () => {
           ))
         ) : (
           <div className="faq-item">
-            {loading ? <p className="ai-response-text">Loading AI response...</p> : aiAnswer && <p className="ai-response-text">{aiAnswer}</p>}
+            {loading ? (
+              <p className="ai-response-text">Loading AI response...</p>
+            ) : (
+              aiAnswer && <p className="ai-response-text">{aiAnswer}</p>
+            )}
           </div>
         )}
       </div>
@@ -91,13 +103,15 @@ const FAQ = () => {
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
-        <button className="search-btn" onClick={handleSearch} disabled={loading}>
+        <button
+          className="search-btn"
+          onClick={handleSearch}
+          disabled={loading}
+        >
           {loading ? "Searching..." : "Search"}
         </button>
       </div>
-
-        </div>
-     
+    </div>
   );
 };
 

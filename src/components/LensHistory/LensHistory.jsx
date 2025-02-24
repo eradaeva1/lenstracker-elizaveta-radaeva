@@ -4,35 +4,18 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_API_URL;
 
 const LensHistory = ({ token, lenses }) => {
-  // const [lenses, setLenses] = useState([]);
   const [reminders, setReminders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const authToken = token || localStorage.getItem("jwt");  
+    const authToken = token || localStorage.getItem("jwt");
 
     if (!authToken) {
       setError("No token provided");
       setLoading(false);
       return;
     }
-
-    // const fetchLenses = async () => {
-    //   try {
-    //     const response = await axios.get(`${API_URL}/lenses`, {
-    //       headers: { Authorization: `Bearer ${authToken}` },
-    //     });
-
-    //     if (Array.isArray(response.data)) {
-    //       setLenses(response.data);
-    //     } else {
-    //       setError("Invalid response format.");
-    //     }
-    //   } catch (err) {
-    //     setError("Failed to fetch lenses");
-    //   }
-    // };
 
     const fetchReminders = async () => {
       try {
@@ -69,12 +52,13 @@ const LensHistory = ({ token, lenses }) => {
         lenses.map((lens) => {
           const reminder = lens.end_date;
 
-
           const calculateDaysLeft = () => {
             if (!reminder) return "No reminder set";
             const today = new Date();
             const reminderDate = new Date(lens.end_date);
-            const daysLeft = Math.ceil((reminderDate - today) / (1000 * 60 * 60 * 24));
+            const daysLeft = Math.ceil(
+              (reminderDate - today) / (1000 * 60 * 60 * 24)
+            );
 
             return daysLeft > 0 ? `Replace in ${daysLeft} days` : "Expired";
           };
@@ -88,12 +72,19 @@ const LensHistory = ({ token, lenses }) => {
                     {lens.replacement_schedule} • {lens.lens_power}
                   </p>
                 </div>
-                <span className={calculateDaysLeft().includes("Expired") ? "expired" : "active"}>
+                <span
+                  className={
+                    calculateDaysLeft().includes("Expired")
+                      ? "expired"
+                      : "active"
+                  }
+                >
                   {calculateDaysLeft()}
                 </span>
               </div>
-              <p className="lens-history__start-date">Worn since: {new Date(lens.start_date).toLocaleDateString()}</p>
-              
+              <p className="lens-history__start-date">
+                Worn since: {new Date(lens.start_date).toLocaleDateString()}
+              </p>
             </div>
           );
         })

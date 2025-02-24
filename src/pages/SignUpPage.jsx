@@ -8,6 +8,7 @@ const SignUpPage = () => {
     const [formData, setFormData] = useState({
       username: "",
       email: "",
+      phone: "",
       password: "",
       confirmPassword: "",
       agreedToTerms: false,
@@ -45,6 +46,7 @@ const SignUpPage = () => {
               username: formData.username,
               email: formData.email,
               password: formData.password,
+              phone: formData.phone
             },
             {
               headers: {
@@ -57,6 +59,7 @@ const SignUpPage = () => {
             username: formData.username,
             email: formData.email,
             password: formData.password,
+            phone: formData.phone
           });
   
         if (response.data.success) {
@@ -112,7 +115,17 @@ const SignUpPage = () => {
                   required
                 />
               </div>
-  
+              <div className="input-group">
+                <i className="fa-regular fa-envelope"></i>
+                <input
+                  type="text"
+                  name="phone"  
+                  placeholder="Enter your phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
               <div className="input-group">
                 <i className="fa-regular fa-lock"></i>
                 <input

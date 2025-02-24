@@ -2,7 +2,6 @@ import React from "react";
 import "../StatusCard/StatusCard";
 import StatusCard from "../StatusCard/StatusCard";
 
-
 const StatusSection = () => {
   return (
     <section className="status-section">

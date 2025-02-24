@@ -2,12 +2,12 @@
 //     max-width: 600px;
 //     margin: 0 auto;
 //     padding: 20px;
-  
+
 //     h2 {
 //       text-align: center;
 //       margin-bottom: 15px;
 //     }
-  
+
 //     input {
 //       width: 80%;
 //       padding: 8px;
@@ -15,7 +15,7 @@
 //       border-radius: 5px;
 //       margin-bottom: 15px;
 //     }
-  
+
 //     button {
 //       padding: 8px 12px;
 //       margin-left: 10px;
@@ -25,11 +25,11 @@
 //       cursor: pointer;
 //       border-radius: 5px;
 //     }
-  
+
 //     .faq-list {
 //       .faq-item {
 //         margin-bottom: 10px;
-        
+
 //         button {
 //           width: 100%;
 //           padding: 10px;
@@ -40,7 +40,7 @@
 //           font-weight: bold;
 //           border-radius: 5px;
 //         }
-  
+
 //         .faq-answer {
 //           padding: 10px;
 //           background: #e9ecef;
@@ -65,7 +65,7 @@ $secondary-color: #edf2f7; // Light gray
 }
 
 // Header Styles
-.header-ai{
+.header-ai {
   position: fixed;
   top: 0;
   left: 0;
@@ -74,22 +74,22 @@ $secondary-color: #edf2f7; // Light gray
   padding: 1rem 2rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 50;
-  
+
   .flex {
     display: flex;
     align-items: center;
   }
-  
+
   button {
     padding: 0.5rem;
   }
-  
+
   .header-title {
     font-size: 1.125rem;
     font-weight: 600;
     color: $text-color;
   }
-  
+
   .header-subtitle {
     font-size: 0.875rem;
     color: #718096;
@@ -103,9 +103,9 @@ $secondary-color: #edf2f7; // Light gray
   border-radius: 2rem;
   display: flex;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 5rem;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-  
+
   .search-input {
     flex-grow: 1;
     background-color: transparent;
@@ -114,7 +114,7 @@ $secondary-color: #edf2f7; // Light gray
     color: $text-color;
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    
+
     ::placeholder {
       color: #b0bec5;
     }
@@ -131,10 +131,10 @@ $secondary-color: #edf2f7; // Light gray
 // FAQ List Styles
 .faq-list {
   margin-top: 2rem;
-  
+
   .faq-item {
     margin-bottom: 1.5rem;
-    
+
     button.faq-question {
       width: 100%;
       text-align: left;
@@ -145,16 +145,16 @@ $secondary-color: #edf2f7; // Light gray
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
+
       span.question-text {
         color: $text-color;
       }
-      
+
       i.icon {
         color: #a0aec0;
       }
     }
-    
+
     .faq-answer {
       margin-top: 0.5rem;
       padding: 1rem;
@@ -169,7 +169,7 @@ $secondary-color: #edf2f7; // Light gray
 .ai-response {
   display: flex;
   margin-bottom: 1.5rem;
-  
+
   .ai-icon {
     width: 2rem;
     height: 2rem;
@@ -181,7 +181,7 @@ $secondary-color: #edf2f7; // Light gray
     color: white;
     font-size: 1rem;
   }
-  
+
   .ai-message {
     margin-left: 1rem;
     background-color: $secondary-color;
@@ -201,7 +201,7 @@ $secondary-color: #edf2f7; // Light gray
   background-color: white;
   padding: 1rem;
   border-top: 1px solid #e2e8f0;
-  
+
   .flex {
     display: flex;
     align-items: center;
@@ -216,7 +216,7 @@ $secondary-color: #edf2f7; // Light gray
     color: $text-color;
     font-size: 1rem;
     outline: none;
-    
+
     &:focus {
       border: 2px solid #f56565;
     }
@@ -259,13 +259,16 @@ $secondary-color: #edf2f7; // Light gray
 }
 
 // Typography for Headings and Paragraphs
-.faq-title, .faq-subtitle, .faq-heading {
-  font-family: 'Roboto', sans-serif;
+.faq-title,
+.faq-subtitle,
+.faq-heading {
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   color: $text-color;
 }
 
-.faq-paragraph, .ai-response-text {
-  font-family: 'Roboto', sans-serif;
+.faq-paragraph,
+.ai-response-text {
+  font-family: "Roboto", sans-serif;
   color: $text-color;
 }
