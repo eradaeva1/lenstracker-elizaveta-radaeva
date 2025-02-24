@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import trashRed from "../../assets/logos/trash-red.svg"
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -41,6 +42,26 @@ const LensHistory = ({ token, lenses }) => {
 
     fetchData();
   }, [token]);
+
+  const deleteLens = async (id) => {
+    try {
+      const confirmDelete = window.confirm("Are you sure you want to delete this lens?");
+      if (!confirmDelete) return;
+  
+      await axios.delete(`${API_URL}/lenses/:${id}`, {
+        headers: { Authorization: `Bearer ${token}` }, // Include auth token
+      });
+  
+      
+      alert("Lens deleted successfully!");
+      
+      // Optionally refresh data (if using state management)
+      fetchData(); // Call this if you have a function to reload lenses
+    } catch (error) {
+      console.error("Error deleting lens:", error);
+      alert("Failed to delete lens. Please try again.");
+    }
+  };
 
   if (loading) return <p>Loading lenses...</p>;
   if (error) return <p className="error">{error}</p>;
@@ -85,6 +106,11 @@ const LensHistory = ({ token, lenses }) => {
               <p className="lens-history__start-date">
                 Worn since: {new Date(lens.start_date).toLocaleDateString()}
               </p>
+              <button
+                className="delete-button"
+                onClick={() => deleteLens(lens.id)}
+              ><img src={trashRed} alt="delete icon" className="delete-icon" ></img></button>
+              
             </div>
           );
         })
