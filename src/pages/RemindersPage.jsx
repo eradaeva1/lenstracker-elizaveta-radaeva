@@ -3,6 +3,9 @@ import axios from "axios";
 import "./RemindersPage.scss";
 import whiteAdd from "../../src/assets/logos/plus-white.svg";
 import trashGrey from "../../src/assets/logos/trash-grey.svg";
+import arrowGrey from "../../src/assets/logos/arrow-grey.svg";
+import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -11,6 +14,8 @@ const RemindersPage = () => {
   const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem("jwt");
+const navigate = useNavigate();
+
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -76,10 +81,28 @@ const RemindersPage = () => {
     }
   };
 
+  const formatDateTime = (dateString, timeString) => {
+    try {
+      const date = new Date (dateString);
+      const formattedDate = format(date, "MMMM dd, yyyy");
+
+      let formattedTime ="";
+      if (timeString) {
+        const time = new Date(`${dateString}T${timeString}`);
+        formattedTime = format(time, "hh:mm a");
+      }
+      return `${formattedDate} ${formattedTime}`.trim();
+    } catch (error){
+      console.error("Error formatting date/time:", error)
+      return dateString;
+    }
+  }
+
   return (
     <div className="reminders-screen">
       <header className="header">
-        <h1>Your Reminders</h1>
+      
+      <h1 className="reminders-header"><img src={arrowGrey} alt="go back" className="arrow-back" onClick={() => navigate("/")}></img>Your Reminders</h1>
         <button className="add-button" onClick={addReminder}>
           <img src={whiteAdd} className="fa-solid fa-plus" alt="add"></img>
         </button>
@@ -111,9 +134,9 @@ const RemindersPage = () => {
                   <h3 className="reminder__title">{reminder.title}</h3>
                   <p>{reminder.message}</p>
                   <p className="reminder__detail">
-                    {reminder.reminder_time} {/* Display reminder time */}
+                    {formatDateTime(reminder.reminder_time)} {/* Display reminder time */}
                   </p>
-                  <p>{reminder.reminder_date}</p> {/* Display reminder date */}
+                  {/* <p>{reminder.reminder_date}</p> Display reminder date */}
                 </div>
               </div>
               <button

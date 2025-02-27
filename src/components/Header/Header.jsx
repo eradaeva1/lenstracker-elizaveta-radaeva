@@ -9,12 +9,12 @@ const Header = () => {
 
   return (
     <header className="header">
-      <img
+      
+      <h1 className="header__logo"><img
         src={redLogo}
         className="fa-regular"
         onClick={() => navigate("/")}
-      ></img>
-      <h1 className="header__logo">LensTracker</h1>
+      ></img>LensTracker</h1>
       <div className="header__actions">
         <button className="header__icon-button">
           <img

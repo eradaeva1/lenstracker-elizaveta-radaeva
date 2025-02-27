@@ -9,59 +9,97 @@ const LensHistory = ({ token, lenses }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const authToken = token || localStorage.getItem("jwt");
+  // useEffect(() => {
+  //   const authToken = token || localStorage.getItem("jwt");
 
+  //   if (!authToken) {
+  //     setError("No token provided");
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   const fetchReminders = async () => {
+  //     try {
+  //       const response = await axios.get(`${API_URL}/reminders`, {
+  //         headers: { Authorization: `Bearer ${authToken}` },
+  //       });
+
+  //       if (Array.isArray(response.data)) {
+  //         setReminders(response.data);
+  //       } else {
+  //         setError("Invalid reminders response format.");
+  //       }
+  //     } catch (err) {
+  //       setError("Failed to fetch reminders");
+  //     }
+  //   };
+
+
+  //   const fetchData = async () => {
+  //     // await fetchLenses();
+  //     await fetchReminders();
+  //     setLoading(false);
+  //   };
+
+  //   fetchData();
+  // }, [token]);
+  useEffect(() => { 
+    fetchData();
+  }, [token]);
+  
+  const fetchData = async () => {
+    const authToken = token || localStorage.getItem("jwt");
+  
     if (!authToken) {
       setError("No token provided");
       setLoading(false);
       return;
     }
-
-    const fetchReminders = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/reminders`, {
-          headers: { Authorization: `Bearer ${authToken}` },
-        });
-
-        if (Array.isArray(response.data)) {
-          setReminders(response.data);
-        } else {
-          setError("Invalid reminders response format.");
-        }
-      } catch (err) {
-        setError("Failed to fetch reminders");
-      }
-    };
-
-    const fetchData = async () => {
-      // await fetchLenses();
-      await fetchReminders();
+  
+    try {
+      await fetchReminders(authToken);
+    } catch (error) {
+      setError("Failed to fetch data");
+    } finally {
       setLoading(false);
-    };
-
-    fetchData();
-  }, [token]);
-
+    }
+  };
+  
+  const fetchReminders = async (authToken) => {
+    try {
+      const response = await axios.get(`${API_URL}/reminders`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+  
+      if (Array.isArray(response.data)) {
+        setReminders(response.data);
+      } else {
+        setError("Invalid reminders response format.");
+      }
+    } catch (err) {
+      setError("Failed to fetch reminders");
+    }
+  };
+  
   const deleteLens = async (id) => {
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete this lens?");
       if (!confirmDelete) return;
   
-      await axios.delete(`${API_URL}/lenses/:${id}`, {
-        headers: { Authorization: `Bearer ${token}` }, // Include auth token
+      await axios.delete(`${API_URL}/lenses/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }, 
       });
   
-      
       alert("Lens deleted successfully!");
       
-      // Optionally refresh data (if using state management)
-      fetchData(); // Call this if you have a function to reload lenses
+      fetchData(); // Refresh data after deletion
     } catch (error) {
       console.error("Error deleting lens:", error);
       alert("Failed to delete lens. Please try again.");
     }
   };
+  
+ 
 
   if (loading) return <p>Loading lenses...</p>;
   if (error) return <p className="error">{error}</p>;

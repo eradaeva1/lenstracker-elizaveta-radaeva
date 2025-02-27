@@ -15,10 +15,11 @@
   z-index: 50;
 
   &__logo {
-    margin-left: -2.1rem;
+    // margin-left: -2.1rem;
     color: #dc2626;
     font-size: 1.25rem;
     font-weight: bold;
+    justify-content: baseline;
   }
 
   &__actions {
@@ -46,4 +47,6 @@
 .fa-regular {
   width: 1.5625rem;
   height: 1.5625rem;
+  margin-right: 0.7rem;
 }
+
