@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import faqs from "../../faqs.json"; // Import the stored FAQs
 import "./QuestionsPage.scss";
-import arrowRed from "../assets/logos/arrow-red.svg";
+import arrowRed from "../assets/logos/arrow-back-red.svg";
 
 const FAQ = () => {
   const [search, setSearch] = useState("");
@@ -55,7 +55,7 @@ const FAQ = () => {
           <div className="ml-3">
             <h1 className="header-title">Frequently Asked Questions</h1>
             <p className="header-subtitle">
-              Search for answers or ask the AI assistant.
+              Search for answers or ask the AI assistant:
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ $secondary-color: #edf2f7; // Light gray
   background-color: $bg-color;
   min-height: 100vh;
   width: min-content;
-  padding-bottom: 1.4rem; // Space for the input area
+  padding-bottom: 2rem; // Space for the input area
 }
 
 // Header Styles
@@ -54,7 +54,7 @@ $secondary-color: #edf2f7; // Light gray
   width: 99%;
       text-align: left;
       font-size: 0.75rem;
-      padding: 0.7rem 1rem;
+      // padding: 0.7rem 1rem;
   background-color: white;
   padding: 0.7rem;
   border-radius: 2rem;
@@ -80,7 +80,7 @@ $secondary-color: #edf2f7; // Light gray
   .search-btn {
     background-color: transparent;
     border: none;
-    color: #f56565;
+    color: #f31818;
     font-size: 1rem;
     margin-left: -2rem;
   }
@@ -88,7 +88,7 @@ $secondary-color: #edf2f7; // Light gray
 
 // FAQ List Styles
 .faq-list {
-  margin-top: 6rem;
+  margin-top: 5.6rem;
   padding: 1rem 0.4rem;
 
   .faq-item {
@@ -133,6 +133,17 @@ $secondary-color: #edf2f7; // Light gray
       color: $text-color;
     }
   }
+}
+
+
+.ai-response-text {
+  margin-top: -1rem;
+  // padding: 0 0.2rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #d3b2b2;
+  border-radius: 12px;
+  transition: 0.3s;
 }
 
 // AI Response Styles
@@ -254,7 +265,7 @@ $secondary-color: #edf2f7; // Light gray
 }
 
 .ml-3 {
-  margin-left: -0.55rem;
+  margin-left: -0.4rem;
 }
 
 .p2 {
