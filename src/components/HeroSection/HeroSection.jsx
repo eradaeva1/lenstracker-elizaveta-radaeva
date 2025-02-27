@@ -64,7 +64,7 @@ const HeroSection = () => {
       />
       <div className="hero__content">
         <p className="hero__greeting">Hello,</p>
-        <h2 className="hero__name">{username}John Doe</h2>{" "}
+        <h2 className="hero__name">{username}Elizaveta Radaeva</h2>{" "}
         {/* Display username or "Guest" */}
         <button
           className="hero__button"

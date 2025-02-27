@@ -122,8 +122,8 @@ const navigate = useNavigate();
   return (
     <div className="reminders-screen">
       <header className="header">
-      
-      <h1 className="reminders-header"><img src={arrowGrey} alt="go back" className="arrow-back" onClick={() => navigate("/")}></img>Your Reminders</h1>
+      <img src={arrowGrey} alt="go back" className="arrow-back" onClick={() => navigate("/")}></img>
+      <h1 className="reminders-header">Your Reminders</h1>
         <button className="add-button" onClick={addReminder}>
           <img src={whiteAdd} className="fa-solid fa-plus" alt="add"></img>
         </button>

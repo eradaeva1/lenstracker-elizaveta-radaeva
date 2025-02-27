@@ -7,7 +7,8 @@ import calendarWhite from "../../assets/logos/calendar-white.svg";
 const StatusCard = ({ icon, modifier }) => {
   return (
     <>
-      <div className={`status-card status-cards ${modifier || ""}`}>
+    <h3 className="status__title">Welcome back to your lens tracking Dashboard</h3>
+      <div className={` status-cards ${modifier || ""}`}>
         <article className="status-card">
           <div className="status-card__icon">
             <img src={clockWhite} className={icon}></img>
@@ -15,7 +16,7 @@ const StatusCard = ({ icon, modifier }) => {
           <div className="status-card__content">
             <h3 className="status-card__title">Current Status</h3>
             <p className="status-card__description">
-              Lenses due for removal in 3 hours
+              Lenses due for removal <span className="demo-dash">in 3 hours</span>
             </p>
           </div>
         </article>
@@ -25,7 +26,7 @@ const StatusCard = ({ icon, modifier }) => {
           </div>
           <div className="status-card__content">
             <h3 className="status-card__title">Next Replacement</h3>
-            <p className="status-card__description">Due in 2 days</p>
+            <p className="status-card__description"><span className="demo-dash">Due in 2 days</span></p>
           </div>
         </article>
         <article className="status-card">
@@ -35,7 +36,7 @@ const StatusCard = ({ icon, modifier }) => {
           <div className="status-card__content">
             <h3 className="status-card__title">Today's Usage</h3>
             <p className="status-card__description">
-              You wore your lenses for 8 hours
+              You wore your lenses <span className="demo-dash">for 8 hours</span>
             </p>
           </div>
         </article>
