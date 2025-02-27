@@ -24,4 +24,5 @@ logs
 #.*.sw?
 
 
-#*.env
+#.env
+#node_modules

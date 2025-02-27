@@ -5,6 +5,18 @@
   flex-direction: column;
 }
 
+
+.lens__title {
+  font-size: 1.34rem;
+  padding: 1.3rem 0 1rem;
+  text-align: center;
+
+  &--form {
+    margin-top: 0.6rem;
+    margin-bottom: 1.7rem;
+    text-align: center;
+  }
+}
 .header {
   background: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -29,14 +41,17 @@
   background: white;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(183, 85, 85, 0.1);
   margin-top: 1rem;
+  font-size: 0.8rem;
+  padding-bottom: 1.5rem;
 
   .input-group {
     margin-bottom: 1rem;
+    
     label {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #4a4a4a;
       margin-bottom: 0.5rem;
     }
@@ -54,12 +69,27 @@
 .lens-history {
   margin-top: 1.5rem;
   margin-bottom: 6rem;
+  font-size: 0.8rem;
+  
   .lens-history__item {
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    // flex-direction: row;
     background: white;
-    padding: 1rem;
+    padding: 0.1rem 1rem 0;
     border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(175, 72, 72, 0.1);
     margin-bottom: 1rem;
+
+    .lens-history__brand {
+      margin-bottom: 0 0 0.1rem;
+    
+    }
+    .lens-history__start-date {
+      justify-content: right;
+      margin-left: 0.2rem;
+    }
     .lens-history__details {
       display: flex;
       justify-content: space-between;
@@ -74,6 +104,13 @@
   }
 }
 
+// .lens-history__middle {
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   padding: 0;
+// }
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -83,6 +120,7 @@
   padding: 1rem;
   display: flex;
   gap: 1rem;
+  // margin-left: -1rem;
   .cancel-btn,
   .save-btn {
     flex: 1;
@@ -100,3 +138,33 @@
     color: white;
   }
 }
+
+
+.add__lens {
+  margin-top: 0.4rem;
+  border: 1px solid gainsboro;
+  &:focus {
+    outline: none;
+  }
+}
+
+.delete-button__history {
+  margin-left: auto;
+  position: relative;
+  // z-index: ;
+  margin-bottom: 0.7rem;
+  margin-top: -2rem;
+  
+}
+
+
+
+// .delete-icon {
+//   text-align: right;
+//   just
+// }
+
+// .lens-history__start-date, span {
+// display: flex;
+// flex-direction: column;
+// }

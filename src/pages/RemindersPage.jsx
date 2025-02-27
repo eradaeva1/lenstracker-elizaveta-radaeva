@@ -6,15 +6,28 @@ import trashGrey from "../../src/assets/logos/trash-grey.svg";
 import arrowGrey from "../../src/assets/logos/arrow-grey.svg";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
+import ReminderModal from "../components/ReminderModal/ReminderModal";
+import greyCheck from "../../src/assets/logos/checkmark-grey.svg"
+import redExcl from "../../src/assets/logos/excl-red.svg"
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const RemindersPage = () => {
   const [reminders, setReminders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [newReminder, setNewReminder ] = useState({
+    lens_ide: "",
+    reminder_time: "",
+    message: "",
+    type: "replacement",
+    status: "pending",
+    reminder_date: "",
+  })
 
   const token = localStorage.getItem("jwt");
 const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -52,7 +65,15 @@ const navigate = useNavigate();
       });
 
       setReminders([...reminders, response.data]);
-      setShowModal(false); // Close the modal after saving
+      setShowModal(false); 
+      setNewReminder({ // Reset the new reminder form
+        lens_id: "",
+        reminder_time: "",
+        message: "",
+        type: "replacement",
+        status: "pending",
+        reminder_date: "",
+      });// Close the modal after saving
     } catch (error) {
       console.error("Error adding reminder:", error);
     }
@@ -123,13 +144,11 @@ const navigate = useNavigate();
           reminders.map((reminder) => (
             <div key={reminder.id} className="reminder">
               <div className="reminder-content">
-                <i
-                  className={`fa-solid ${
-                    reminder.status === "pending"
-                      ? "fa-exclamation-circle text-red-500"
-                      : "fa-check-circle text-gray-400"
-                  }`}
-                ></i>
+              <img
+    className="fa-solid"
+    src={reminder.status === "pending" ? redExcl : greyCheck}
+    alt={reminder.status === "pending" ? "Pending" : "Completed"}
+  />
                 <div>
                   <h3 className="reminder__title">{reminder.title}</h3>
                   <p>{reminder.message}</p>
@@ -157,6 +176,13 @@ const navigate = useNavigate();
           <span>Create New Reminder</span>
         </button>
       </footer>
+      <ReminderModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        handleSave={handleSaveReminder}
+        newReminder={newReminder}
+        setNewReminder={setNewReminder}
+      />
     </div>
   );
 };

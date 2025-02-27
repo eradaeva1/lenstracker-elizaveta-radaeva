@@ -4,45 +4,11 @@ import trashRed from "../../assets/logos/trash-red.svg"
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const LensHistory = ({ token, lenses }) => {
+const LensHistory = ({ token, lenses, setLenses }) => {
   const [reminders, setReminders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   const authToken = token || localStorage.getItem("jwt");
-
-  //   if (!authToken) {
-  //     setError("No token provided");
-  //     setLoading(false);
-  //     return;
-  //   }
-
-  //   const fetchReminders = async () => {
-  //     try {
-  //       const response = await axios.get(`${API_URL}/reminders`, {
-  //         headers: { Authorization: `Bearer ${authToken}` },
-  //       });
-
-  //       if (Array.isArray(response.data)) {
-  //         setReminders(response.data);
-  //       } else {
-  //         setError("Invalid reminders response format.");
-  //       }
-  //     } catch (err) {
-  //       setError("Failed to fetch reminders");
-  //     }
-  //   };
-
-
-  //   const fetchData = async () => {
-  //     // await fetchLenses();
-  //     await fetchReminders();
-  //     setLoading(false);
-  //   };
-
-  //   fetchData();
-  // }, [token]);
   useEffect(() => { 
     fetchData();
   }, [token]);
@@ -91,6 +57,14 @@ const LensHistory = ({ token, lenses }) => {
       });
   
       alert("Lens deleted successfully!");
+
+      setLenses((prevLenses) => prevLenses.filter((lens) => lens.id !== id));
+
+      // ✅ Also remove the corresponding reminder if applicable
+      setReminders((prevReminders) =>
+        prevReminders.filter((reminder) => reminder.lens_id !== id)
+      );
+      
       
       fetchData(); // Refresh data after deletion
     } catch (error) {
@@ -106,7 +80,7 @@ const LensHistory = ({ token, lenses }) => {
 
   return (
     <section className="lens-history">
-      <h2 className="lens-history__title">Track Wear History</h2>
+      <h2 className="lens__title">Track Wear History</h2>
       {lenses.length > 0 ? (
         lenses.map((lens) => {
           const reminder = lens.end_date;
@@ -127,8 +101,12 @@ const LensHistory = ({ token, lenses }) => {
               <div className="lens-history__details">
                 <div>
                   <h3 className="lens-history__brand">{lens.lens_name}</h3>
+                  <div className="lens-history__middle">
                   <p className="lens-history__info">
-                    {lens.replacement_schedule} • {lens.lens_power}
+                    Days • {lens.replacement_schedule}
+                  </p>
+                  <p className="lens-history__info">
+                    Power • {lens.lens_power}
                   </p>
                 </div>
                 <span
@@ -144,8 +122,9 @@ const LensHistory = ({ token, lenses }) => {
               <p className="lens-history__start-date">
                 Worn since: {new Date(lens.start_date).toLocaleDateString()}
               </p>
+              </div>
               <button
-                className="delete-button"
+                className="delete-button__history"
                 onClick={() => deleteLens(lens.id)}
               ><img src={trashRed} alt="delete icon" className="delete-icon" ></img></button>
               

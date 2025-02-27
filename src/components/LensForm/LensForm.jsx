@@ -109,7 +109,7 @@ const LensForm = ({ fetchLensesData }) => {
   };
   return (
     <section className="lens-form">
-      <h2>Log New Lens</h2>
+      <h2 className="lens__title--form">Log New Lens</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <label>Lens Brand</label>
@@ -166,7 +166,7 @@ const LensForm = ({ fetchLensesData }) => {
           </select>
         </div>
 
-        <button type="submit" disabled={isLoading}>
+        <button className="add__lens" type="submit" disabled={isLoading}>
           {isLoading ? "Saving..." : "Add Lens"}
         </button>
       </form>

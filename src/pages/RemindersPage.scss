@@ -115,7 +115,24 @@
 
 .reminder {
   position: relative;
-  z-index: 100;
-  // color: red;
+  // z-index: 100;
+
+  width: 100%;
+      text-align: left;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
   margin-top: 2rem;
+}
+
+.arrow-back {
+  margin-right: 1.2rem;
+}
+
+.delete-button {
+  margin-top: 5rem;
 }

@@ -10,18 +10,18 @@ const Header = () => {
   return (
     <header className="header">
       
-      <h1 className="header__logo"><img
+      <img
         src={redLogo}
         className="fa-regular"
         onClick={() => navigate("/")}
-      ></img>LensTracker</h1>
+      ></img><h1 className="header__logo">LensTracker</h1>
       <div className="header__actions">
         <button className="header__icon-button">
-          <img
+          {/* <img
             src={bellGrey}
             className="fa-regular fa-bell"
             onClick={() => navigate("/users/login")}
-          ></img>
+          ></img> */}
         </button>
         <img
           src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg"

@@ -44,12 +44,12 @@ const LensesPage = () => {
       <Header />
       <main className="main-content">
         <div className="lens-section">
-          <h2>Your Lenses History</h2>
+          <h2 className="lens__title">Your Lenses History</h2>
           {/* {error && <p className="error-message">{error}</p>} */}
 
           <LensForm fetchLensesData={fetchLensesData} />
 
-          {token && <LensHistory lenses={lenses} token={token} />}
+          {token && <LensHistory lenses={lenses} token={token} setLenses={setLenses}/>}
 
           {/* {lenses.length === 0 && !error && <p>No lenses found. Please add some lenses.</p>} */}
         </div>

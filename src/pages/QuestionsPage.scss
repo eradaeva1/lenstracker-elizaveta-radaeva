@@ -29,6 +29,7 @@ $secondary-color: #edf2f7; // Light gray
 
   button {
     padding: 0.5rem;
+    
   }
 
   .header-title {
@@ -43,6 +44,10 @@ $secondary-color: #edf2f7; // Light gray
   }
 }
 
+.p-2 {
+  margin-left: -0.7rem;
+  margin-right: 1.2rem;
+}
 // Search Bar Styles
 .faq-search {
   background-color: white;
@@ -77,7 +82,7 @@ $secondary-color: #edf2f7; // Light gray
 
 // FAQ List Styles
 .faq-list {
-  margin-top: 2rem;
+  margin-top: 9rem;
 
   .faq-item {
     margin-bottom: 1.5rem;
@@ -92,6 +97,11 @@ $secondary-color: #edf2f7; // Light gray
       display: flex;
       justify-content: space-between;
       align-items: center;
+      
+      &:focus {
+        outline: none;
+        border: 1px solid red;
+      }
 
       span.question-text {
         color: $text-color;
@@ -116,6 +126,7 @@ $secondary-color: #edf2f7; // Light gray
 .ai-response {
   display: flex;
   margin-bottom: 1.5rem;
+  padding-top: 2rem;
 
   .ai-icon {
     width: 2rem;
