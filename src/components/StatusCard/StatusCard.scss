@@ -6,7 +6,7 @@
   align-items: flex-start;
   width: 100%;
   gap: 12px;
-  padding: 0.9rem 1rem 0.4rem;
+  padding: 1.1rem 1rem 0.4rem;
   background: white;
   border: 1px solid #eee;
   border-radius: 12px;
@@ -58,17 +58,17 @@
 .status__title {
   font-weight: 500;
   // color: rgb(205, 56, 56);
-  opacity: 90%;
+  opacity: 50%;
   background-color: #ffc0c0;
-  // font-style: italic;
+ margin-left: 0.4rem;
   font-size: 0.8rem;
   padding: 0.3rem 1rem 0;
   width: 90%;
   text-align: center;
   background: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  transition: 0.3s;
+  // border: 1px solid #eee;
+  // border-radius: 12px;
+  // transition: 0.3s;
 }
 .status-cards {
   margin-bottom: 6rem;
@@ -78,7 +78,7 @@
   display: flex;
   width: 100%;
   gap: 12px;
-  padding: 1.2rem 1rem 5rem;
+  padding: 0.6rem 1rem 5rem;
   background: white;
   // border: 1px solid #eee;
   border-radius: 12px;

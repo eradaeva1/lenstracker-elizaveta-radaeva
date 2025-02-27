@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  height: 17.5rem;
+  height: 18.5rem;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -42,6 +42,9 @@
     border-radius: 0.625rem;
     font-weight: medium;
     border: none;
-    cursor: pointer;
+    // cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
 }

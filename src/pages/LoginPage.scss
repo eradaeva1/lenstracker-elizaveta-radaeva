@@ -25,11 +25,11 @@
     z-index: 10;
     text-align: center;
     background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    max-width: 25rem;
+    width: 90%;
   }
 }
 
@@ -47,20 +47,22 @@
   &__text {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 0.5rem;
+    margin-left: -0.3rem;
   }
 }
 
 .welcome-text {
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
 
   h1 {
-    font-size: 1.8rem;
+    margin-top: 0.6rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 
   p {
     color: #6b7280;
+    font-size: 0.8rem;
   }
 }
 
@@ -101,6 +103,7 @@
   font-size: 0.9rem;
   color: #e63946;
   cursor: pointer;
+  text-align: center;
 }
 
 .action-buttons {
@@ -116,6 +119,9 @@
     font-weight: bold;
     transition: background 0.3s;
     cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
 
   .login-btn {
@@ -144,7 +150,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1.5rem;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: #6b7280;
 
   span {

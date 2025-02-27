@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; 
 import "./LoginPage.scss";
+import redLogo from "../../src/assets/logos/eye-red.svg"
 
 const API_URL = "http://localhost:5000"; 
 
@@ -40,6 +41,7 @@ function LoginPage() {
     };
   
     return (
+      <section className="login">
       <div className="login-screen">
         <div className="login-screen__background">
           <img
@@ -51,7 +53,11 @@ function LoginPage() {
   
         <div className="login-screen__content">
           <div className="logo">
-            <i className="fa-solid fa-eye logo__icon"></i>
+            <img
+                    src={redLogo}
+                    className="fa-regular"
+                    onClick={() => navigate("/")}
+                  ></img>
             <span className="logo__text">LensTracker</span>
           </div>
   
@@ -106,6 +112,7 @@ function LoginPage() {
           <span>Need Help?</span>
         </footer>
       </div>
+      </section>
     );
   }
   
